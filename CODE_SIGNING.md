@@ -1,17 +1,16 @@
-# Code signing policy
+# Code signing
 
-Free code signing provided by [SignPath.io](https://about.signpath.io), certificate by [SignPath Foundation](https://signpath.org) (application pending).
+Open Claude releases are not code-signed yet. Windows therefore shows a SmartScreen warning ("Windows protected your PC") before the installer runs, and on PCs with Smart App Control turned on it does not run at all. For those PCs, the web app at https://scaliastudio.dev/products/openclaude/app does the same job with nothing to install.
 
-This policy is also published on the project homepage: https://scaliastudio.dev/products/openclaude#code-signing
+Until releases are signed, this is what stands behind a download:
 
-## Roles
+- Every release is built by this repository's `Release` workflow on GitHub Actions, from a version tag, after a maintainer approves the protected `release` environment. Nothing is built or uploaded from a developer's machine.
+- Each release publishes SHA-256 checksums (`SHA256SUMS.txt`) and a GitHub build-provenance attestation. Check one with `gh attestation verify OpenClaude-Setup.exe --repo scaliastudio/open-claude`, or compare `Get-FileHash` against the checksum file.
+- The program is about 70 lines in [`src/main.rs`](src/main.rs), with one dependency, Microsoft's `windows-sys`.
 
-| Role | Members |
-|---|---|
-| Committers and reviewers | [Matteomio16](https://github.com/Matteomio16) |
-| Approvers | [Matteomio16](https://github.com/Matteomio16) |
+## Maintainers
 
-Reviewers review every external pull request before it is merged. Every signing request is approved manually by an approver. Only binaries built by this repository's `Release` workflow from a version tag are submitted for signing, and only binaries built from this repository's own source.
+[Matteomio16](https://github.com/Matteomio16) commits, reviews pull requests and approves releases.
 
 ## Privacy
 

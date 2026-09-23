@@ -11,9 +11,18 @@ Open Claude is a parody product by [Scalia Studio](https://scaliastudio.dev/prod
 
 ## Download
 
-- **Windows:** the installer is on the [Releases](https://github.com/scaliastudio/open-claude/releases) page.
-- Windows code signing: free code signing provided by [SignPath.io](https://about.signpath.io), certificate by [SignPath Foundation](https://signpath.org) (application pending; see [CODE_SIGNING.md](CODE_SIGNING.md)).
-- **Mac:** no download. Open [scaliastudio.dev/products/openclaude](https://scaliastudio.dev/products/openclaude) in Safari and choose **File → Add to Dock**.
+- **Windows 10 and 11:** download `OpenClaude-Setup.exe` from the [latest release](https://github.com/scaliastudio/open-claude/releases/latest).
+- **Mac:** there is nothing to download. Open [scaliastudio.dev/products/openclaude/app](https://scaliastudio.dev/products/openclaude/app) in Safari and choose **File → Add to Dock**.
+
+### Windows will warn you first
+
+Open Claude is not code-signed yet, so Windows cannot tell who made it:
+
+- Your browser may say the file isn't commonly downloaded. Choose **Keep**.
+- When you run the installer, Windows shows **Windows protected your PC**. Click **More info**, then **Run anyway**.
+- If your PC has **Smart App Control** turned on, Windows won't run unsigned apps at all, and there is no button to allow this one. Use the web app instead: open [scaliastudio.dev/products/openclaude/app](https://scaliastudio.dev/products/openclaude/app) in Edge or Chrome and choose **Install**.
+
+Before you click **Run anyway**, you can check that the file is the one GitHub built: see [Verify a download](#verify-a-download).
 
 ## What it does, exactly
 
@@ -32,7 +41,15 @@ It does not:
 
 ## Verify a download
 
-Every release is built by GitHub Actions from a tagged commit in this repository, never on a developer's machine. Each release lists SHA-256 checksums and carries a signed build attestation:
+Every release is built by GitHub Actions from a tagged commit in this repository, never on a developer's machine, and lists SHA-256 checksums in `SHA256SUMS.txt`.
+
+In PowerShell, in the folder you downloaded to:
+
+```
+Get-FileHash .\OpenClaude-Setup.exe -Algorithm SHA256
+```
+
+The hash should match the line for `OpenClaude-Setup.exe` in the release's `SHA256SUMS.txt`. With the GitHub CLI you can also check the signed build record, which proves the file came from this repository's workflow:
 
 ```
 gh attestation verify OpenClaude-Setup.exe --repo scaliastudio/open-claude
@@ -49,7 +66,7 @@ iscc /DAppVersion=1.0.0 installer/open-claude.iss
 
 ## Security
 
-See [SECURITY.md](SECURITY.md) to report a problem, and [CODE_SIGNING.md](CODE_SIGNING.md) for how releases are signed.
+See [SECURITY.md](SECURITY.md) to report a problem, and [CODE_SIGNING.md](CODE_SIGNING.md) for why releases are not signed yet and how they are protected instead.
 
 ## License
 

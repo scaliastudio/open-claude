@@ -36,8 +36,8 @@ jobs:
           ./installer/ensure-inno.ps1
           & $env:ISCC /Qp /DAppVersion=$env:VERSION installer/open-claude.iss
 
-      # Code signing (SignPath Foundation) goes here once the project is accepted:
-      # sign target/release/OpenClaude.exe before the installer step, then the installer after it.
+      # Code signing goes here once releases are signed (see CODE_SIGNING.md): sign
+      # target/release/OpenClaude.exe before the installer step, then the installer after it.
 
       - name: Checksums
         shell: pwsh
@@ -63,7 +63,8 @@ jobs:
             'It opens Claude.', '', 'SHA-256:', $fence, $sums, $fence, '',
             'Verify the build came from this repository:', $fence,
             "gh attestation verify OpenClaude-Setup.exe --repo $env:GITHUB_REPOSITORY", $fence, '',
-            'Not affiliated with, endorsed by or sponsored by Anthropic.', '',
-            'Code signing: free code signing provided by SignPath.io, certificate by SignPath Foundation. Policy: https://github.com/scaliastudio/open-claude/blob/main/CODE_SIGNING.md'
+            'Not code-signed yet: Windows will show "Windows protected your PC". Check the SHA-256 above, then click More info and Run anyway.',
+            'On a PC with Smart App Control turned on, use the web app instead: https://scaliastudio.dev/products/openclaude/app', '',
+            'Not affiliated with, endorsed by or sponsored by Anthropic.'
           ) -join "`n"
           gh release create $env:GITHUB_REF_NAME --draft --title "Open Claude $env:VERSION" --notes $notes (Get-ChildItem dist -File).FullName
