@@ -1,6 +1,6 @@
 [package]
 name = "open-claude"
-version = "1.0.0"
+version = "1.0.1"
 edition = "2021"
 description = "It opens Claude."
 license = "MIT"
@@ -18,6 +18,11 @@ windows-sys = { version = "0.61.2", features = [
   "Win32_UI_Shell",
   "Win32_UI_WindowsAndMessaging",
 ] }
+
+# Embeds the icon, product name and version into OpenClaude.exe. Code signing checks
+# these attributes, and without them Explorer shows a blank "Details" tab.
+[target.'cfg(windows)'.build-dependencies]
+winresource = "0.1.31"
 
 [profile.release]
 opt-level = "z"

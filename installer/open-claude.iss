@@ -27,6 +27,12 @@ ArchitecturesInstallIn64BitMode=x64compatible
 Compression=lzma2/max
 SolidCompression=yes
 WizardStyle=modern
+VersionInfoVersion={#AppVersion}
+VersionInfoProductName=Open Claude
+VersionInfoProductVersion={#AppVersion}
+VersionInfoCompany=Scalia Studio
+VersionInfoDescription=Open Claude installer
+VersionInfoCopyright=Copyright (c) 2026 Scalia Studio contributors. MIT License.
 
 [Tasks]
 Name: "desktopicon"; Description: "Put Open Claude on the desktop"

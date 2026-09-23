@@ -21,4 +21,4 @@ jobs:
         shell: pwsh
         run: |
           ./installer/ensure-inno.ps1
-          & $env:ISCC /Qp /DAppVersion=0.0.0-ci installer/open-claude.iss
+          & $env:ISCC /Qp /DAppVersion=0.0.0 installer/open-claude.iss
