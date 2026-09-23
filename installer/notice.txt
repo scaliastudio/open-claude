@@ -1,0 +1,9 @@
+Open Claude is a parody product by Scalia Studio.
+
+It does one thing: it opens Claude. If the Claude desktop app is installed it opens that, otherwise it opens https://claude.ai in your browser.
+
+It does not connect to the internet itself, collect data, run in the background or update itself. It installs for your user account only and can be removed from Settings > Apps.
+
+Open Claude is not affiliated with, endorsed by or sponsored by Anthropic. Claude is a trademark of Anthropic, PBC.
+
+Source code: https://github.com/scalia-studio/open-claude
