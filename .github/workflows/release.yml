@@ -63,6 +63,7 @@ jobs:
             'It opens Claude.', '', 'SHA-256:', $fence, $sums, $fence, '',
             'Verify the build came from this repository:', $fence,
             "gh attestation verify OpenClaude-Setup.exe --repo $env:GITHUB_REPOSITORY", $fence, '',
-            'Not affiliated with, endorsed by or sponsored by Anthropic.'
+            'Not affiliated with, endorsed by or sponsored by Anthropic.', '',
+            'Code signing: free code signing provided by SignPath.io, certificate by SignPath Foundation. Policy: https://github.com/scaliastudio/open-claude/blob/main/CODE_SIGNING.md'
           ) -join "`n"
           gh release create $env:GITHUB_REF_NAME --draft --title "Open Claude $env:VERSION" --notes $notes (Get-ChildItem dist -File).FullName

@@ -12,6 +12,7 @@ Open Claude is a parody product by [Scalia Studio](https://scaliastudio.dev/prod
 ## Download
 
 - **Windows:** the installer is on the [Releases](https://github.com/scaliastudio/open-claude/releases) page.
+- Windows code signing: free code signing provided by [SignPath.io](https://about.signpath.io), certificate by [SignPath Foundation](https://signpath.org) (application pending; see [CODE_SIGNING.md](CODE_SIGNING.md)).
 - **Mac:** no download. Open [scaliastudio.dev/products/openclaude](https://scaliastudio.dev/products/openclaude) in Safari and choose **File → Add to Dock**.
 
 ## What it does, exactly
