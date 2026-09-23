@@ -57,6 +57,12 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          $sums = Get-Content dist/SHA256SUMS.txt -Raw
-          $notes = "It opens Claude.`n`nSHA-256:`n``````n$sums``````n`nVerify the build came from this repository:`n``````n gh attestation verify OpenClaude-Setup.exe --repo $env:GITHUB_REPOSITORY`n``````"
+          $fence = '`' * 3
+          $sums = (Get-Content dist/SHA256SUMS.txt) -join "`n"
+          $notes = @(
+            'It opens Claude.', '', 'SHA-256:', $fence, $sums, $fence, '',
+            'Verify the build came from this repository:', $fence,
+            "gh attestation verify OpenClaude-Setup.exe --repo $env:GITHUB_REPOSITORY", $fence, '',
+            'Not affiliated with, endorsed by or sponsored by Anthropic.'
+          ) -join "`n"
           gh release create $env:GITHUB_REF_NAME --draft --title "Open Claude $env:VERSION" --notes $notes (Get-ChildItem dist -File).FullName
