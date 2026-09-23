@@ -6,8 +6,8 @@ Free code signing provided by [SignPath.io](https://about.signpath.io), certific
 
 | Role | Members |
 |---|---|
-| Committers and reviewers | [Scalia Studio members](https://github.com/orgs/scalia-studio/people) |
-| Approvers | [Owners](https://github.com/orgs/scalia-studio/people?query=role%3Aowner) |
+| Committers and reviewers | [Scalia Studio members](https://github.com/orgs/scaliastudio/people) |
+| Approvers | [Owners](https://github.com/orgs/scaliastudio/people?query=role%3Aowner) |
 
 Every signing request is approved manually by an approver. Only binaries built by this repository's `Release` workflow from a version tag are submitted for signing.
 

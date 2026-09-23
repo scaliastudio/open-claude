@@ -4,7 +4,7 @@ version = "1.0.0"
 edition = "2021"
 description = "It opens Claude."
 license = "MIT"
-repository = "https://github.com/scalia-studio/open-claude"
+repository = "https://github.com/scaliastudio/open-claude"
 publish = false
 
 [[bin]]

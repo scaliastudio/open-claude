@@ -11,7 +11,7 @@ Open Claude is a parody product by [Scalia Studio](https://scaliastudio.dev/prod
 
 ## Download
 
-- **Windows:** the installer is on the [Releases](https://github.com/scalia-studio/open-claude/releases) page.
+- **Windows:** the installer is on the [Releases](https://github.com/scaliastudio/open-claude/releases) page.
 - **Mac:** no download. Open [scaliastudio.dev/products/openclaude](https://scaliastudio.dev/products/openclaude) in Safari and choose **File → Add to Dock**.
 
 ## What it does, exactly
@@ -34,7 +34,7 @@ It does not:
 Every release is built by GitHub Actions from a tagged commit in this repository, never on a developer's machine. Each release lists SHA-256 checksums and carries a signed build attestation:
 
 ```
-gh attestation verify OpenClaude-Setup-1.0.0.exe --repo scalia-studio/open-claude
+gh attestation verify OpenClaude-Setup.exe --repo scaliastudio/open-claude
 ```
 
 ## Build it yourself

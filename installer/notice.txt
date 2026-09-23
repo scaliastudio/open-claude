@@ -6,4 +6,4 @@ It does not connect to the internet itself, collect data, run in the background 
 
 Open Claude is not affiliated with, endorsed by or sponsored by Anthropic. Claude is a trademark of Anthropic, PBC.
 
-Source code: https://github.com/scalia-studio/open-claude
+Source code: https://github.com/scaliastudio/open-claude
